@@ -1,0 +1,32 @@
+Hello guys!
+
+
+How to git.
+
+
+Publishing Changes.
+
+Whenever you make a change to the folder that Git is tracking, it will keep track of changes and update a log file that allows people to see what changes have been made.
+This allows us to have a history of the repository.
+
+
+1) Make some changes to whatever you want.
+
+2) Stage the changes for commit 
+
+git add <full filepath>
+
+3) Commit the changes. This commit the changes to the log.
+
+git commit -m "<write a commit message>"
+
+4) ALWAYS ALWAYS PULL before you push. When you pull, you bring in everyone elses changes before publishing your own.
+   If you do not pull and you push directly, you will overwrite other people's changes and lose other people's work.
+   
+   git pull
+   
+5) Push to the master repository after you fix merges and stuff.
+
+    git push
+	
+6) YAY
