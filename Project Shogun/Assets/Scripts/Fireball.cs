@@ -15,9 +15,11 @@ public class Fireball : MonoBehaviour {
 		if(col.tag == "Enemies")
 		{
 			// ... find the Enemy script and call the Hurt function.
-			col.gameObject.GetComponent<EnemyBehaviour>().Hurt();
 			SoundManager.instance.Play("FireHit");
 			
+			//col.gameObject.GetComponent<EnemyBehaviour>().Hurt();
+			Destroy (col.gameObject);
+
 			// Call the explosion instantiation.
 			//OnExplode();
 			

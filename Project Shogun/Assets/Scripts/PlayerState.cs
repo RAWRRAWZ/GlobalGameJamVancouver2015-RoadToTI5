@@ -32,9 +32,8 @@ public class PlayerState : MonoBehaviour {
 	public bool superMode;
 
 	public int numberOfGems;
-	public int superTime;
 
-	public string gameOverText;
+	public GameObject gameOverScreen;
 
 	// Use this for initialization
 	void Awake () {
@@ -44,7 +43,6 @@ public class PlayerState : MonoBehaviour {
 	void Start () {
 		currentState = state.SAMURAI;
 		numberOfGems = 0;
-		superTime = 0;
 		superMode = false;
 	}
 	
@@ -52,9 +50,10 @@ public class PlayerState : MonoBehaviour {
 	void Update () {
 		switch (currentState) {
 		case state.NINJA:
-			transform.root.GetComponent<PlayerMovement>().maxSpeed = 25;
 			ninjaArm.SetActive(true);
 			samuraiSword.SetActive(false);
+
+			transform.root.GetComponent<PlayerMovement>().maxSpeed = 20;
 			if (!superMode){
 				ren.sprite = ninjaModel;
 				//transform.root.Find("body").gameObject.GetComponent<SpriteRenderer>().sprite = ninjaObject.GetComponent<SpriteRenderer>().sprite;
@@ -64,7 +63,7 @@ public class PlayerState : MonoBehaviour {
 				ren.sprite = superNinjaModel;
 			break;
 		case state.SAMURAI:
-			transform.root.GetComponent<PlayerMovement>().maxSpeed = 18;
+			transform.root.GetComponent<PlayerMovement>().maxSpeed = 14;
 			ninjaArm.SetActive(false);
 			samuraiSword.SetActive(true);
 			if (!superMode)
@@ -83,16 +82,8 @@ public class PlayerState : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate() {
-		if (superMode) {
-			superTime--;
-			if (superTime <= 0) {
-				superMode = false;
-			}
-		}
-	}
-
 	void GameOver() {
+		gameOverScreen.SetActive (true);
 		//GameObject.FindWithTag ("Finish").gameObject.GetComponent<Canvas> ().enabled = true;;
 		//Application.LoadLevel(Application.loadedLevel);
 	}

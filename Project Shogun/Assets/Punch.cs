@@ -14,10 +14,13 @@ public class Punch : MonoBehaviour {
 			// If it hits an enemy...
 			if (col.tag == "Enemies") {
 				// ... find the Enemy script and call the Hurt function.
-				col.gameObject.GetComponent<EnemyBehaviour> ().Hurt ();
+				//col.gameObject.GetComponent<EnemyBehaviour> ().Hurt ();
+				Destroy (col.gameObject);
 			} else if (col.gameObject.tag == "Player") {
 				// If the player hit is a Samurai, change his state to Ninja
-				col.gameObject.GetComponent<PlayerState> ().currentState--;
+				if (col.gameObject.GetComponent<PlayerState> ().currentState == PlayerState.state.NINJA) {
+					col.gameObject.GetComponent<PlayerState> ().currentState--;
+				}
 			}
 			
 			transform.parent.GetComponent<PunchAttack> ().attack = false;

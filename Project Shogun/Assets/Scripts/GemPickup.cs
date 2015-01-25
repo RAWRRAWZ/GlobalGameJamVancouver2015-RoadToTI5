@@ -5,7 +5,6 @@ public class GemPickup : MonoBehaviour
 {
 	private Animator anim;				// Reference to the animator component.
 	private bool landed = false;		// Whether or not the crate has landed yet.
-	private int superTime = 500;
 	static private int gemThreshold = 3;
 
 	public GameObject weaponObject;
@@ -34,7 +33,6 @@ public class GemPickup : MonoBehaviour
 
 			if (++state.numberOfGems >= gemThreshold) {
 				state.superMode = true;
-				state.superTime = superTime;
 				state.numberOfGems = 0;
 
 				// Enable the ShurikenThrow script the player has.

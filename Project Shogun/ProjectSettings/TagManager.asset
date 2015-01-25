@@ -7,13 +7,14 @@ TagManager:
   - Environment
   - Enemies
   - StageLimit
-  - 
+  - PowerUp
   - Weapon
   - 
   - ground
   - PowerUpSpawn
   - 
   - Obstacles
+  - Intro
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
