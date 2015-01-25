@@ -35,6 +35,10 @@ public class PlayerState : MonoBehaviour {
 
 	public GameObject gameOverScreen;
 
+	private int ninjaSpeed = 22;
+	private int samuraiSpeed = 12;
+
+
 	// Use this for initialization
 	void Awake () {
 		//ren = transform.Find("testPlayer").GetComponent<SpriteRenderer>();
@@ -53,7 +57,7 @@ public class PlayerState : MonoBehaviour {
 			ninjaArm.SetActive(true);
 			samuraiSword.SetActive(false);
 
-			transform.root.GetComponent<PlayerMovement>().maxSpeed = 20;
+			transform.root.GetComponent<PlayerMovement>().maxSpeed = ninjaSpeed;
 			if (!superMode){
 				ren.sprite = ninjaModel;
 				//transform.root.Find("body").gameObject.GetComponent<SpriteRenderer>().sprite = ninjaObject.GetComponent<SpriteRenderer>().sprite;
@@ -63,7 +67,7 @@ public class PlayerState : MonoBehaviour {
 				ren.sprite = superNinjaModel;
 			break;
 		case state.SAMURAI:
-			transform.root.GetComponent<PlayerMovement>().maxSpeed = 14;
+			transform.root.GetComponent<PlayerMovement>().maxSpeed = samuraiSpeed;
 			ninjaArm.SetActive(false);
 			samuraiSword.SetActive(true);
 			if (!superMode)
