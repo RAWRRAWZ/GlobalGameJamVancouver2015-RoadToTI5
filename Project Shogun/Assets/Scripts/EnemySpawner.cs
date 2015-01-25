@@ -3,8 +3,8 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
-	public float spawnTime = 10f;		// The amount of time between each spawn.
-	public float spawnDelay = 3f;		// The amount of time before spawning starts.
+	public float spawnTime = 20f;		// The amount of time between each spawn.
+	public float spawnDelay = 5f;		// The amount of time before spawning starts.
 	public GameObject[] enemies;		// Array of enemy prefabs.
 
 	private int maxEnemies = 10;
@@ -15,6 +15,13 @@ public class EnemySpawner : MonoBehaviour
 		// Start calling the Spawn function repeatedly after a delay .
 		InvokeRepeating("Spawn", spawnDelay, spawnTime);
 		numEnemies = 0;
+		/**
+		if (startingRight) {
+			foreach (GameObject obj in enemies){
+				obj.GetComponent<EnemyBehaviour>().startingRight = true;
+			}
+		}
+		**/
 	}
 
 

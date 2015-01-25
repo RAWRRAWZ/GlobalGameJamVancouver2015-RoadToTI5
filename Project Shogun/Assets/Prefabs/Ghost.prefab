@@ -32,7 +32,7 @@ GameObject:
   - 58: {fileID: 5841898}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,6 +304,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11430270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,6 +334,7 @@ MonoBehaviour:
   damagedEnemy: {fileID: 0}
   deathSpinMin: -100
   deathSpinMax: 100
+  startingRight: 0
 --- !u!212 &21278392
 SpriteRenderer:
   m_ObjectHideFlags: 1

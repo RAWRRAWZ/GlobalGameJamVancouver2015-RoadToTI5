@@ -40,13 +40,15 @@ public class WeaponThrow : MonoBehaviour {
 			// Instantiate the shuriken prefab.
 			//Instantiate(swan, transform.position, transform.rotation);
 			if (playerCtrl.facingRight) { 
-				Rigidbody2D weaponInstance = Instantiate(weaponRB, weaponRenderer.transform.position + new Vector3(4.5f, 0, 0), Quaternion.Euler(new Vector3(180f,0,0))) as Rigidbody2D;
+				Rigidbody2D weaponInstance = Instantiate(weaponRB, weaponRenderer.transform.position + new Vector3(4.5f, 0, 0), Quaternion.Euler(new Vector3(0,180,0))) as Rigidbody2D;
 				weaponInstance.velocity = new Vector2(30f, 0);
 			} else { 
 				// ... instantiate the rocket facing right and set it's velocity to the right. 
 				Rigidbody2D weaponInstance = Instantiate(weaponRB, weaponRenderer.transform.position + new Vector3(-4.5f, 0, 0), Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
 				weaponInstance.velocity = new Vector2(-30f, 0);
 			}
+			transform.root.GetComponent<PlayerState>().superMode = false;
+
 		}
 		
 		// The shuriken weapon should show itself if there are shurikens left to throw

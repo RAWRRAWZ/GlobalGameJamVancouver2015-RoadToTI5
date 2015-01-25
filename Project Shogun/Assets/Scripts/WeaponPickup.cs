@@ -9,14 +9,17 @@ public class WeaponPickup : MonoBehaviour
 
 	public GameObject weaponObject;
 
-	//public Sprite weaponSprite;
-
 	void Awake()
 	{
-
+		// Setting up the reference.	
 	}
-	
 
+	void Start() 
+	{
+		Destroy (gameObject, 8);		
+	}
+
+	
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		// If the player enters the trigger zone...

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-	public float moveSpeed = -10f;		// The speed the enemy moves at.
+	public float moveSpeed = -20;		// The speed the enemy moves at.
 	public int HP = 1;					// How many times the enemy can be hit before it dies.
 	public Sprite deadEnemy;			// A sprite of the enemy when it's dead.
 	public Sprite damagedEnemy;			// A sprite of the enemy when it's dead.
@@ -13,6 +13,8 @@ public class EnemyBehaviour : MonoBehaviour
 	public float deathSpinMax = 100f;			// A value to give the maximum amount of Torque when dying
 
 
+	public bool startingRight;
+
 	private SpriteRenderer ren;			// Reference to the sprite renderer.
 	private Transform frontCheck;		// Reference to the position of the gameobject used for checking if something is in front.
 	private bool dead = false;			// Whether or not the enemy is dead.
@@ -20,7 +22,8 @@ public class EnemyBehaviour : MonoBehaviour
 
 	void Start()
 	{
-		Destroy (gameObject, 10);
+		Destroy (gameObject, 50);
+		if (startingRight) Flip();
 	}
 
 	void Awake()
@@ -34,20 +37,24 @@ public class EnemyBehaviour : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		// Create an array of all the colliders in front of the enemy.
-		Collider2D[] frontHits = Physics2D.OverlapPointAll(frontCheck.position, 1);
-
-		// Check each of the colliders.
-		foreach(Collider2D c in frontHits)
-		{
-			// If any of the colliders is an Obstacle...
-			if(c.tag == "Obstacle")
+			// Create an array of all the colliders in front of the enemy.
+			Collider2D[] frontHits = Physics2D.OverlapPointAll(frontCheck.position, 1);
+			
+			// Check each of the colliders.
+			foreach(Collider2D c in frontHits)
 			{
-				// ... Flip the enemy and stop checking the other colliders.
-				Flip ();
-				break;
+				// If any of the colliders is an Obstacle...
+				if(c.tag == "StageLimit")
+				{
+					// ... Flip the enemy and stop checking the other colliders.
+					Flip ();
+					break;
+				} else if (c.tag == "Enemies") {
+					Physics2D.IgnoreCollision (gameObject.collider2D, c);
+					break;
+				}
+
 			}
-		}
 
 		// Set the enemy's velocity to moveSpeed in the x direction.
 		rigidbody2D.velocity = new Vector2(transform.localScale.x * moveSpeed, rigidbody2D.velocity.y);	

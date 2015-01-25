@@ -7,18 +7,22 @@ public class GemPickup : MonoBehaviour
 
 	private Animator anim;				// Reference to the animator component.
 	private bool landed = false;		// Whether or not the crate has landed yet.
-	private int superTime = 500;
-	static private int gemThreshold = 1;
+	static private int gemThreshold = 3;
 
 	public GameObject weaponObject;
-
+	
 	void Awake()
-	{	
-		// Setting up the reference.
+	{
+		// Setting up the reference.	
 		anim = transform.root.GetComponent<Animator>();
 	}
 
+	void Start() 
+	{
+		Destroy (gameObject, 8);
+	}
 
+	
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		// If the player enters the trigger zone...
@@ -32,7 +36,6 @@ public class GemPickup : MonoBehaviour
 
 			if (++state.numberOfGems >= gemThreshold) {
 				state.superMode = true;
-				state.superTime = superTime;
 				state.numberOfGems = 0;
 
 				// Enable the ShurikenThrow script the player has.
@@ -45,4 +48,5 @@ public class GemPickup : MonoBehaviour
 			Destroy(transform.root.gameObject);
 		}
 	}
+	
 }

@@ -6,11 +6,14 @@ TagManager:
   - Player
   - Environment
   - Enemies
-  - Obstacles
+  - StageLimit
   - 
   - Weapon
   - 
   - ground
+  - PowerUpSpawn
+  - 
+  - Obstacles
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -64,4 +67,8 @@ TagManager:
   - name: Objects
     userID: 2
     uniqueID: 4291124515
+    locked: 0
+  - name: UI
+    userID: 5
+    uniqueID: 2222114317
     locked: 0
