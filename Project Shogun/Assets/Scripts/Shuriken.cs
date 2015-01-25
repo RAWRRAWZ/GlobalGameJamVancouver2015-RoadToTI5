@@ -11,11 +11,11 @@ public class Shuriken : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D col) 
 	{
 		// If it hits an enemy...
-		if(col.tag == "Enemy")
+		if(col.tag == "Enemies")
 		{
 			// ... find the Enemy script and call the Hurt function.
-			//col.gameObject.GetComponent<Enemy>().Hurt();
-			
+			//col.gameObject.GetComponent<EnemyBehaviour>().Hurt();
+			Destroy (col.gameObject);
 			// Call the explosion instantiation.
 			//OnExplode();
 			
