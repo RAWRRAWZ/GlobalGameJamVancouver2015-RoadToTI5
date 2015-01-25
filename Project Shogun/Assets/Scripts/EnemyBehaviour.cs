@@ -18,7 +18,13 @@ public class EnemyBehaviour : MonoBehaviour
 	private bool dead = false;			// Whether or not the enemy is dead.
 	//private Score score;				// Reference to the Score script.
 
-	
+	void Start()
+	{
+
+				Destroy (gameObject, 40);
+
+		}
+
 	void Awake()
 	{
 		// Setting up the references.
