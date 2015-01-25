@@ -21,7 +21,8 @@ public class PlayerState : MonoBehaviour {
 		
 	public GameObject superNinjaAnimModel;
 	public GameObject superSamuraiAnimModel;
-
+	public GameObject ninjaArm;
+	public GameObject samuraiSword;
 
 	public Sprite deadModel;
 	public SpriteRenderer ren;
@@ -52,6 +53,8 @@ public class PlayerState : MonoBehaviour {
 		switch (currentState) {
 		case state.NINJA:
 			transform.root.GetComponent<PlayerMovement>().maxSpeed = 25;
+			ninjaArm.SetActive(true);
+			samuraiSword.SetActive(false);
 			if (!superMode){
 				ren.sprite = ninjaModel;
 				//transform.root.Find("body").gameObject.GetComponent<SpriteRenderer>().sprite = ninjaObject.GetComponent<SpriteRenderer>().sprite;
@@ -62,6 +65,8 @@ public class PlayerState : MonoBehaviour {
 			break;
 		case state.SAMURAI:
 			transform.root.GetComponent<PlayerMovement>().maxSpeed = 18;
+			ninjaArm.SetActive(false);
+			samuraiSword.SetActive(true);
 			if (!superMode)
 				ren.sprite = samuraiModel;
 			else 
