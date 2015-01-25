@@ -8,7 +8,9 @@ public class GemPickup : MonoBehaviour
 	private Animator anim;				// Reference to the animator component.
 	private bool landed = false;		// Whether or not the crate has landed yet.
 	private int superTime = 500;
-	static private int gemThreshold = 3;
+	static private int gemThreshold = 1;
+
+	public GameObject weaponObject;
 
 	void Awake()
 	{	
@@ -32,6 +34,11 @@ public class GemPickup : MonoBehaviour
 				state.superMode = true;
 				state.superTime = superTime;
 				state.numberOfGems = 0;
+
+				// Enable the ShurikenThrow script the player has.
+				other.GetComponent<WeaponThrow>().weaponCount = 1;
+				other.GetComponent<WeaponThrow>().weaponSprite = weaponObject.GetComponent<SpriteRenderer>().sprite;
+				other.GetComponent<WeaponThrow>().weaponRB = weaponObject.GetComponent<Rigidbody2D>();
 			}
 
 			// Destroy the crate.

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-	public float moveSpeed = -2f;		// The speed the enemy moves at.
+	public float moveSpeed = -10f;		// The speed the enemy moves at.
 	public int HP = 1;					// How many times the enemy can be hit before it dies.
 	public Sprite deadEnemy;			// A sprite of the enemy when it's dead.
 	public Sprite damagedEnemy;			// A sprite of the enemy when it's dead.
