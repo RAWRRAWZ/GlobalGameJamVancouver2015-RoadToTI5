@@ -16,6 +16,13 @@ public class PlayerState : MonoBehaviour {
 	public Sprite superSamuraiModel;
 	public Sprite superNinjaModel;
 
+	public GameObject ninjaAnimModel;
+	public GameObject samuraiAnimModel;
+		
+	public GameObject superNinjaAnimModel;
+	public GameObject superSamuraiAnimModel;
+
+
 	public Sprite deadModel;
 	public SpriteRenderer ren;
 
@@ -80,7 +87,7 @@ public class PlayerState : MonoBehaviour {
 	}
 
 	void GameOver() {
-		GameObject.FindWithTag ("Finish").gameObject.GetComponent<Canvas> ().enabled = true;;
+		//GameObject.FindWithTag ("Finish").gameObject.GetComponent<Canvas> ().enabled = true;;
 		//Application.LoadLevel(Application.loadedLevel);
 	}
 }

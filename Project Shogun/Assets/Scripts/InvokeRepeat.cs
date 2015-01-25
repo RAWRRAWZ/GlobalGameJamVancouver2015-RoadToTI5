@@ -11,7 +11,7 @@ public class InvokeRepeat : MonoBehaviour
 	void Start()
 	{
 		numObjects = 0;
-		InvokeRepeating("SpawnObject", Random.Range (1, 8), Random.Range (1, 8));
+		InvokeRepeating("SpawnObject", Random.Range (1, 3), Random.Range (1, 3));
 	}
 	
 	void SpawnObject()
