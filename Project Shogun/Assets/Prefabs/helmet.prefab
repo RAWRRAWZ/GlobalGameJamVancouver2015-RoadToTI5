@@ -41,7 +41,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -81,7 +81,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupClip: {fileID: 8300000, guid: db98127145b650c49954bcfdb6bb78e4, type: 3}
-  state: 0
 --- !u!212 &21275064
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,7 +99,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 703561007
+  m_SortingLayerID: 4291124515
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: af84f72aaefb88e4ea8c8ceb24fb3407, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -24,11 +24,11 @@ public class PowerUpState : MonoBehaviour {
 	void FixedUpdate () {
 		switch (currentState) {
 		case state.FAST_MODE:
-			transform.root.GetComponent<PlayerControl>().maxSpeed = 25;
+			transform.root.GetComponent<PlayerMovement>().maxSpeed = 25;
 			powerUpTime--;
 			if (powerUpTime <= 0) {
 				currentState = state.NORMAL_MODE;
-				transform.root.GetComponent<PlayerControl>().maxSpeed = 11;
+				transform.root.GetComponent<PlayerMovement>().maxSpeed = 11;
 			}
 			break;
 		case state.NORMAL_MODE:

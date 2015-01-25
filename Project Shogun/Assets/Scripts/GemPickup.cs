@@ -8,7 +8,7 @@ public class GemPickup : MonoBehaviour
 	private Animator anim;				// Reference to the animator component.
 	private bool landed = false;		// Whether or not the crate has landed yet.
 	private int superTime = 500;
-	private int gemThreshold = 1;
+	static private int gemThreshold = 3;
 
 	void Awake()
 	{	
@@ -29,24 +29,10 @@ public class GemPickup : MonoBehaviour
 			PlayerState state = other.GetComponent<PlayerState>();
 
 			if (++state.numberOfGems >= gemThreshold) {
-				switch (state.currentState) {
-				case PlayerState.state.NINJA:
-				case PlayerState.state.SUPER_NINJA:
-					state.currentState = PlayerState.state.SUPER_NINJA;
-					state.superTime = superTime;
-					break;
-				case PlayerState.state.SAMURAI:
-				case PlayerState.state.SUPER_SAMURAI:
-					state.currentState = PlayerState.state.SUPER_SAMURAI;
-					state.superTime = superTime;
-					break;
-				default:
-					break;
-				}
+				state.superMode = true;
+				state.superTime = superTime;
 				state.numberOfGems = 0;
 			}
-
-			
 
 			// Destroy the crate.
 			Destroy(transform.root.gameObject);
