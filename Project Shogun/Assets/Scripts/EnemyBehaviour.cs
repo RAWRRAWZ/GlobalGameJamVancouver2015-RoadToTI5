@@ -6,7 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 	public float moveSpeed = -2f;		// The speed the enemy moves at.
 	public int HP = 1;					// How many times the enemy can be hit before it dies.
 	public Sprite deadEnemy;			// A sprite of the enemy when it's dead.
-	public Sprite damagedEnemy;			// An optional sprite of the enemy when it's damaged.
+	public Sprite damagedEnemy;			// A sprite of the enemy when it's dead.
 	//public AudioClip[] deathClips;		// An array of audioclips that can play when the enemy dies.
 	//public GameObject hundredPointsUI;	// A prefab of 100 that appears when the enemy dies.
 	public float deathSpinMin = -100f;			// A value to give the minimum amount of Torque when dying
@@ -20,10 +20,8 @@ public class EnemyBehaviour : MonoBehaviour
 
 	void Start()
 	{
-
-				Destroy (gameObject, 40);
-
-		}
+		Destroy (gameObject, 10);
+	}
 
 	void Awake()
 	{

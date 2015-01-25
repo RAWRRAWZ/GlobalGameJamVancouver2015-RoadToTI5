@@ -9,13 +9,15 @@ public class WeaponThrow : MonoBehaviour {
 	public Rigidbody2D weaponRB = null;				// Prefab of the shuriken.
 	public SpriteRenderer weaponRenderer;
 	public Sprite weaponSprite;
+
+	public string fireButton;
 	//public Sprite originalSprite;
 
-	private PlayerControl playerCtrl;		// Reference to the PlayerControl script.
+	private PlayerMovement playerCtrl;		// Reference to the PlayerControl script.
 
 	void Awake ()
 	{
-		playerCtrl = transform.root.GetComponent<PlayerControl>();
+		playerCtrl = transform.root.GetComponent<PlayerMovement>();
 
 	}
 	
@@ -24,7 +26,7 @@ public class WeaponThrow : MonoBehaviour {
 	{
 
 		// If the shuriken throwing button is pressed, the shuriken hasn't been laid and there's a shuriken to throw...
-		if(Input.GetButtonDown("Fire2") && !weaponThrown && weaponCount > 0)
+		if(Input.GetKeyDown (fireButton) && !weaponThrown && weaponCount > 0)
 		{
 			// Decrement the number of shuriken.
 			weaponCount--;
@@ -38,12 +40,12 @@ public class WeaponThrow : MonoBehaviour {
 			// Instantiate the shuriken prefab.
 			//Instantiate(swan, transform.position, transform.rotation);
 			if (playerCtrl.facingRight) { 
-				Rigidbody2D weaponInstance = Instantiate(weaponRB, weaponRenderer.transform.position, Quaternion.Euler(new Vector3(180f,0,0))) as Rigidbody2D;
-				weaponInstance.velocity = new Vector2(20f, 0);
+				Rigidbody2D weaponInstance = Instantiate(weaponRB, weaponRenderer.transform.position + new Vector3(5f, 0, 0), Quaternion.Euler(new Vector3(180f,0,0))) as Rigidbody2D;
+				weaponInstance.velocity = new Vector2(30f, 0);
 			} else { 
 				// ... instantiate the rocket facing right and set it's velocity to the right. 
-				Rigidbody2D weaponInstance = Instantiate(weaponRB, weaponRenderer.transform.position, Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
-				weaponInstance.velocity = new Vector2(-20f, 0);
+				Rigidbody2D weaponInstance = Instantiate(weaponRB, weaponRenderer.transform.position + new Vector3(-5f, 0, 0), Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
+				weaponInstance.velocity = new Vector2(-30f, 0);
 			}
 		}
 		

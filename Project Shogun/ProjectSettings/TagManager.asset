@@ -6,9 +6,11 @@ TagManager:
   - Player
   - Environment
   - Enemies
-  - 
+  - Obstacles
   - 
   - Weapon
+  - 
+  - ground
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -19,11 +21,11 @@ TagManager:
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Background
-  User Layer 9: 
+  User Layer 9: Ground
   User Layer 10: 
   User Layer 11: 
-  User Layer 12: 
-  User Layer 13: 
+  User Layer 12: Players
+  User Layer 13: Objects
   User Layer 14: 
   User Layer 15: 
   User Layer 16: 
@@ -51,11 +53,15 @@ TagManager:
     userID: 1
     uniqueID: 703561007
     locked: 0
-  - name: Objects
-    userID: 2
-    uniqueID: 4291124515
-    locked: 0
   - name: Enemies
     userID: 3
     uniqueID: 843685497
+    locked: 0
+  - name: Players
+    userID: 4
+    uniqueID: 3330291377
+    locked: 0
+  - name: Objects
+    userID: 2
+    uniqueID: 4291124515
     locked: 0

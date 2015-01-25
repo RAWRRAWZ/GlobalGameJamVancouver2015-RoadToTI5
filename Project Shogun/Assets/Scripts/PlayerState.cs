@@ -4,21 +4,27 @@ using System.Collections;
 public class PlayerState : MonoBehaviour {
 
 	public enum state {
-		SAMURAI,
+		DEAD,
 		NINJA,
-		SUPER_SAMURAI,
-		SUPER_NINJA,
-		DEAD
+		SAMURAI
 	};
 
 	public state currentState;
 	public Sprite ninjaModel;
 	public Sprite samuraiModel;
+
+	public Sprite superSamuraiModel;
+	public Sprite superNinjaModel;
+
 	public Sprite deadModel;
 	public SpriteRenderer ren;
 
+	public bool superMode;
+
 	public int numberOfGems;
 	public int superTime;
+
+	public string gameOverText;
 
 	// Use this for initialization
 	void Awake () {
@@ -26,23 +32,30 @@ public class PlayerState : MonoBehaviour {
 	}
 
 	void Start () {
+		currentState = state.SAMURAI;
 		numberOfGems = 0;
 		superTime = 0;
+		superMode = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		switch (currentState) {
 		case state.NINJA:
-		case state.SUPER_NINJA:
-			ren.sprite = ninjaModel;
+			if (!superMode)
+				ren.sprite = ninjaModel;
+			else 
+				ren.sprite = superNinjaModel;
 			break;
 		case state.SAMURAI:
-		case state.SUPER_SAMURAI:
-			ren.sprite = samuraiModel;
+			if (!superMode)
+				ren.sprite = samuraiModel;
+			else 
+				ren.sprite = superSamuraiModel;
 			break;
 		case state.DEAD:
 			Destroy (transform.root.gameObject);
+			//guiText.text = gameOverText;
 			break;
 		default:
 			break;
@@ -50,21 +63,11 @@ public class PlayerState : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		switch (currentState) {
-		case state.SUPER_NINJA:
+		if (superMode) {
 			superTime--;
 			if (superTime <= 0) {
-				currentState = state.NINJA;
+				superMode = false;
 			}
-			break;
-		case state.SUPER_SAMURAI:
-			superTime--;
-			if (superTime <= 0) {
-				currentState = state.SAMURAI;
-			}
-			break;
-		default:
-			break;
 		}
 	}
 }

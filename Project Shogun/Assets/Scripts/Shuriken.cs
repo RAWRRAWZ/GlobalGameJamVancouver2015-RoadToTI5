@@ -5,7 +5,7 @@ public class Shuriken : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		Destroy (gameObject, 3f);
 	}
 	
 	void OnTriggerEnter2D (Collider2D col) 
@@ -26,8 +26,9 @@ public class Shuriken : MonoBehaviour {
 		// Otherwise if the player manages to shoot himself...
 		else if(col.gameObject.tag == "Player")
 		{
-			// Kill the player
-			col.gameObject.GetComponent<PlayerState>().currentState = PlayerState.state.DEAD;
+			// If the player hit is a Samurai, change his state to Ninja
+			col.gameObject.GetComponent<PlayerState>().currentState--;
+
 			//OnExplode();
 			Destroy (gameObject);
 		}
