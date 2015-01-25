@@ -13,7 +13,7 @@ GameObject:
   - 58: {fileID: 5842692}
   - 50: {fileID: 5042692}
   - 61: {fileID: 6142692}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: shurikenPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
