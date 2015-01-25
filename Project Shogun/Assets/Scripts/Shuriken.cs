@@ -14,8 +14,8 @@ public class Shuriken : MonoBehaviour {
 		if(col.tag == "Enemies")
 		{
 			// ... find the Enemy script and call the Hurt function.
-			//col.gameObject.GetComponent<EnemyBehaviour>().Hurt();
-			Destroy (col.gameObject);
+			col.gameObject.GetComponent<EnemyBehaviour>().Hurt();
+			
 			// Call the explosion instantiation.
 			//OnExplode();
 			
