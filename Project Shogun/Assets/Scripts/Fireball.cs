@@ -16,6 +16,7 @@ public class Fireball : MonoBehaviour {
 		{
 			// ... find the Enemy script and call the Hurt function.
 			col.gameObject.GetComponent<EnemyBehaviour>().Hurt();
+			SoundManager.instance.Play("FireHit");
 			
 			// Call the explosion instantiation.
 			//OnExplode();
@@ -31,7 +32,9 @@ public class Fireball : MonoBehaviour {
 			col.gameObject.GetComponent<PlayerState>().currentState = PlayerState.state.DEAD;
 
 			//OnExplode();
+			SoundManager.instance.Play("FireHit");
 			Destroy (gameObject);
+		
 		}
 	}
 }

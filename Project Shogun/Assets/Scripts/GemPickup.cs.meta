@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 8fb0e438d599be14c871f3dd8fcc8829
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - SFX_GemPickUp: {fileID: 8300000, guid: 42ebc2966a0103440bd00e6070ddfed8, type: 3}
+  - weaponObject: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

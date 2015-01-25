@@ -68,6 +68,7 @@ public class PlayerState : MonoBehaviour {
 				ren.sprite = superSamuraiModel;
 			break;
 		case state.DEAD:
+			SoundManager.instance.Play("Round");
 			Destroy (transform.root.gameObject);
 			//guiText.text = gameOverText;
 			GameOver();

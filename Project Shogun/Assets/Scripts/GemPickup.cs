@@ -3,8 +3,6 @@ using System.Collections;
 
 public class GemPickup : MonoBehaviour
 {
-	public AudioClip pickupClip;		// Sound for when the bomb crate is picked up.
-
 	private Animator anim;				// Reference to the animator component.
 	private bool landed = false;		// Whether or not the crate has landed yet.
 	private int superTime = 500;
@@ -30,8 +28,7 @@ public class GemPickup : MonoBehaviour
 		if(other.tag == "Player")
 		{
 			// ... play the pickup sound effect.
-			AudioSource.PlayClipAtPoint(pickupClip, transform.position);
-
+			SoundManager.instance.Play("GemPickUp");
 			// Increase the number of bombs the player has.
 			PlayerState state = other.GetComponent<PlayerState>();
 

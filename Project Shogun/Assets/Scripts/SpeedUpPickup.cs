@@ -18,9 +18,7 @@ public class SpeedUpPickup : MonoBehaviour
 		if(other.tag == "Player")
 		{
 			// ... play the pickup sound effect.
-			if (pickupClip != null)
-				AudioSource.PlayClipAtPoint(pickupClip, transform.position);
-
+			SoundManager.instance.Play("Eat");
 			// Increase the number of bombs the player has.
 			other.GetComponent<PowerUpState>().currentState = PowerUpState.state.FAST_MODE;
 

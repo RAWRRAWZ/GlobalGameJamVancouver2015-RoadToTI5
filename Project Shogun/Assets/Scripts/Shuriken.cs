@@ -18,8 +18,10 @@ public class Shuriken : MonoBehaviour {
 			
 			// Call the explosion instantiation.
 			//OnExplode();
+			SoundManager.instance.Play("ShurikenImpact");
 			
 			// Destroy the rocket.
+
 			Destroy (gameObject);
 		}
 
@@ -29,7 +31,7 @@ public class Shuriken : MonoBehaviour {
 			// If the player hit is a Samurai, change his state to Ninja
 			col.gameObject.GetComponent<PlayerState>().currentState--;
 
-
+			SoundManager.instance.Play("ShurikenImpact");
 
 			//OnExplode();
 			Destroy (gameObject);

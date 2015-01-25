@@ -3,7 +3,8 @@ using System.Collections;
 
 public class WeaponPickup : MonoBehaviour
 {
-	public AudioClip pickupClip;		// Sound for when the bomb crate is picked up.
+
+	// Sound for when the bomb crate is picked up.
 
 	//public Rigidbody2D weaponRB;
 
@@ -26,7 +27,7 @@ public class WeaponPickup : MonoBehaviour
 		if(other.tag == "Player")
 		{
 			// ... play the pickup sound effect.
-			AudioSource.PlayClipAtPoint(pickupClip, transform.position);
+			SoundManager.instance.Play("WalkGrass");
 
 			// Enable the ShurikenThrow script the player has.
 

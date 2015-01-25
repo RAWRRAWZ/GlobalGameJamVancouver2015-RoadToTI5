@@ -33,10 +33,11 @@ public class WeaponThrow : MonoBehaviour {
 			
 			// Set shurikenThrown to true.
 			//shurikenThrown = true;
-			
-			// Play the shuriken laying sound.
-			AudioSource.PlayClipAtPoint(throwSound,transform.position);
-			
+			if 	(weaponRenderer.sprite.name == "fireball" ){
+				SoundManager.instance.Play("FireThrow");
+			} else if (weaponRenderer.sprite.name == "shuriken" ){
+				SoundManager.instance.Play("ShurikenThrow");
+			}
 			// Instantiate the shuriken prefab.
 			//Instantiate(swan, transform.position, transform.rotation);
 			if (playerCtrl.facingRight) { 

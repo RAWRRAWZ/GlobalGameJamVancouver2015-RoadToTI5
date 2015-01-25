@@ -27,7 +27,7 @@ public class SamuraiPickup : MonoBehaviour
 		if(other.tag == "Player")
 		{
 			// ... play the pickup sound effect.
-			AudioSource.PlayClipAtPoint(pickupClip, transform.position);
+			SoundManager.instance.Play("ArmourUp");
 
 			// Change the player state to samurai
 			PlayerState.state currentState = other.GetComponent<PlayerState>().currentState;
