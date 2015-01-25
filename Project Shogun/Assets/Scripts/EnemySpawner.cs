@@ -3,8 +3,8 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
-	public float spawnTime = 10f;		// The amount of time between each spawn.
-	public float spawnDelay = 5f;		// The amount of time before spawning starts.
+	public float spawnTime = 15f;		// The amount of time between each spawn.
+	public float spawnDelay = 10f;		// The amount of time before spawning starts.
 	public GameObject[] enemies;		// Array of enemy prefabs.
 
 	private int maxEnemies = 10;

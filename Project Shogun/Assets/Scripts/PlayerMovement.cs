@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerMovement: MonoBehaviour {
-	public int walkspeed = 2;
+	public int walkspeed = 4;
 
 	public bool jump = false;				// Condition for whether the player should jump.
 	public bool facingRight = true;
@@ -12,7 +12,7 @@ public class PlayerMovement: MonoBehaviour {
 	public string down = "s";
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
-	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
+	public float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
 	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
 
 	private float speedTimer = 0;
@@ -88,7 +88,7 @@ public class PlayerMovement: MonoBehaviour {
 
 	public void superspeed(){
 		fast = true;
-		maxSpeed = 10f;
+		maxSpeed = 30f;
 	}
 
 	void Flip ()
