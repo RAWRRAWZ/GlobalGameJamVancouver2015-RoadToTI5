@@ -27,7 +27,7 @@ public class PowerUpState : MonoBehaviour {
 			powerUpTime--;
 			if (powerUpTime <= 0) {
 				currentState = state.NORMAL_MODE;
-				transform.root.GetComponent<PlayerMovement>().maxSpeed = 11;
+				transform.root.GetComponent<PlayerMovement>().maxSpeed = 18;
 			}
 			break;
 		case state.NORMAL_MODE:

@@ -13,9 +13,9 @@ GameObject:
   - 50: {fileID: 5075064}
   - 114: {fileID: 11475064}
   - 58: {fileID: 5875064}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: helmet
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

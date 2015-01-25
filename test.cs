@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -17,14 +17,14 @@ public class EnemyBehaviour : MonoBehaviour
 
 	private SpriteRenderer ren;			// Reference to the sprite renderer.
 	private Transform frontCheck;		// Reference to the position of the gameobject used for checking if something is in front.
-	//private Transform body;
+	private Transform body;
 	private bool dead = false;			// Whether or not the enemy is dead.
 	//private Score score;				// Reference to the Score script.
 
 	void Start()
 	{
 		Destroy (gameObject, 30f);
-		//BodyCheck ();
+		BodyCheck ();
 		if (startingRight) Flip();
 	}
 
@@ -34,17 +34,25 @@ public class EnemyBehaviour : MonoBehaviour
 		//ren = transform.Find("ghost").GetComponent<SpriteRenderer>();
 		ren = gameObject.GetComponent<SpriteRenderer>();
 		frontCheck = transform.Find("frontCheck").transform;
-		//body = transform.Find("body").transform;
 		//score = GameObject.Find("Score").GetComponent<Score>();
 	}
 
+	void BodyCheck()
+	{
+				Collider2D[] bodyHits = Physics2 D.OverlapPointAll (body.position, 1);
 
+				foreach (Collider2D d in bodyHits)
+						if (d.tag == "Enemies") {
+								Physics2D.IgnoreCollision (gameObject.collider2D, d);
+						}
+		}
 
 	void FixedUpdate ()
 	{
 			// Create an array of all the colliders in front of the enemy.
 			Collider2D[] frontHits = Physics2D.OverlapPointAll(frontCheck.position, 1);
 
+			
 			// Check each of the colliders.
 			foreach (Collider2D c in frontHits) {
 						// If any of the colliders is an Obstacle...
@@ -52,11 +60,13 @@ public class EnemyBehaviour : MonoBehaviour
 								// ... Flip the enemy and stop checking the other colliders.
 								Flip ();
 								break;
-						} else if (c.tag == "Enemies" || c.tag == "PowerUp") {
+						} else if (c.tag == "Enemies") {
 								Physics2D.IgnoreCollision (gameObject.collider2D, c);
+
+								break;
 						}
 				}
-		//BodyCheck ();
+
 		
 
 		// Set the enemy's velocity to moveSpeed in the x direction.
