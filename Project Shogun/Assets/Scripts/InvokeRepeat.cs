@@ -5,20 +5,17 @@ public class InvokeRepeat : MonoBehaviour
 {
 	public GameObject[] targets;
 	
-	
 	void Start()
 	{
-		InvokeRepeating("SpawnObject", Random.Range (1, 5), Random.Range (1,5));
+		InvokeRepeating("SpawnObject", Random.Range (1, 8), Random.Range (1, 8));
 	}
 	
 	void SpawnObject()
 	{		// Instantiate a random enemy.
 		int targetIndex = Random.Range(0, targets.Length);
 		//Instantiate(targets[targetIndex], transform.position, transform.rotation);
-
-
-		float x = Random.Range(-300.0f, 300.0f);
-		float y = Random.Range(-100.0f, 100.0f);
-		Instantiate(targets[targetIndex], new Vector3(x, y), Quaternion.identity);
+		Vector3 screenPosition = new Vector3 (0, 0, 0);
+		//Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0,Screen.width), Random.Range(0,Screen.height), Camera.main.farClipPlane/2));
+		Instantiate(targets[targetIndex], screenPosition, Quaternion.identity);
 	}
 }
