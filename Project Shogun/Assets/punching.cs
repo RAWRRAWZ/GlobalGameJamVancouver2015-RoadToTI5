@@ -14,8 +14,9 @@ public class punching : MonoBehaviour {
 		
 	}
 	void OnTriggerEnter2D (Collider2D col) {
-		if (col.tag == "Enemy" && transform.parent.GetComponent<PlayerAttack>().attack == true){
-			Instantiate(explosion,transform.position, Quaternion.identity);
+		if (col.tag == "Enemies" && transform.parent.GetComponent<PlayerAttack>().attack == true){
+			//Instantiate(explosion,transform.position, Quaternion.identity);
+			Destroy(col.gameObject);
 		}
 	}
 }

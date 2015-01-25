@@ -286,6 +286,7 @@ GameObject:
   - 212: {fileID: 222804030}
   - 111: {fileID: 222804029}
   - 95: {fileID: 222804031}
+  - 114: {fileID: 222804032}
   m_Layer: 12
   m_Name: Arm
   m_TagString: Untagged
@@ -359,6 +360,21 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+--- !u!114 &222804032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 222804027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd704d4709684df478e52fab77507e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocket: {fileID: 0}
+  weapon: {fileID: 0}
+  speed: 20
+  attack: 0
 --- !u!1 &252954634
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +818,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 502780224}
   - 60: {fileID: 502780225}
+  - 114: {fileID: 502780226}
   m_Layer: 12
   m_Name: Collision
   m_TagString: Untagged
@@ -843,6 +860,18 @@ PolygonCollider2D:
       - {x: -.380328476, y: -1.77055275}
       - {x: -.469654828, y: -1.14946246}
       - {x: -.330358207, y: .0049194321}
+--- !u!114 &502780226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502780223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96141d51ef07e854d848542c9c57f52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 0}
 --- !u!1 &533603167
 GameObject:
   m_ObjectHideFlags: 0
