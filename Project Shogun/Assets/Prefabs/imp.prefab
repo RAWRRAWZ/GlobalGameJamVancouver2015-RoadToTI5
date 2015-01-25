@@ -46,7 +46,7 @@ GameObject:
   - 58: {fileID: 5801334}
   m_Layer: 0
   m_Name: imp
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,6 +341,7 @@ MonoBehaviour:
   damagedEnemy: {fileID: 0}
   deathSpinMin: -100
   deathSpinMax: 100
+  startingRight: 0
 --- !u!212 &21263614
 SpriteRenderer:
   m_ObjectHideFlags: 1

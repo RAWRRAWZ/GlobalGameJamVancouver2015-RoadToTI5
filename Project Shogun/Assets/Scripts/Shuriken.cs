@@ -29,6 +29,8 @@ public class Shuriken : MonoBehaviour {
 			// If the player hit is a Samurai, change his state to Ninja
 			col.gameObject.GetComponent<PlayerState>().currentState--;
 
+
+
 			//OnExplode();
 			Destroy (gameObject);
 		}

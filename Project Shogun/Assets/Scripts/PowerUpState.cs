@@ -14,7 +14,6 @@ public class PowerUpState : MonoBehaviour {
 
 	public int normalSpeed;
 
-	// Use this for initialization
 	void Start () {
 		currentState = state.NORMAL_MODE;
 		powerUpTime = 0;
@@ -36,4 +35,5 @@ public class PowerUpState : MonoBehaviour {
 			break;
 		}
 	}
+
 }

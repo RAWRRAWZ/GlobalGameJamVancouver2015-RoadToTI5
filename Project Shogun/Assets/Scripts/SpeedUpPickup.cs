@@ -6,13 +6,11 @@ public class SpeedUpPickup : MonoBehaviour
 	public AudioClip pickupClip;		// Sound for when the bomb crate is picked up.
 
 	public int powerUpTime;
-
-
-	void Awake()
+	
+	void Start() 
 	{
-		// Setting up the reference.	
+		Destroy (gameObject, 8);	
 	}
-
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
@@ -32,4 +30,5 @@ public class SpeedUpPickup : MonoBehaviour
 			Destroy(transform.root.gameObject);
 		}
 	}
+
 }

@@ -15,7 +15,12 @@ public class SamuraiPickup : MonoBehaviour
 		anim = transform.root.GetComponent<Animator>();
 	}
 
+	void Start() 
+	{
+		Destroy (gameObject, 8);		
+	}
 
+	
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		// If the player enters the trigger zone...
