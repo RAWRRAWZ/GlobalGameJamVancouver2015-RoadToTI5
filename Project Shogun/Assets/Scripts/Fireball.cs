@@ -12,16 +12,16 @@ public class Fireball : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D col)
 	{
 		// If it hits an enemy...
-		if(col.tag == "Enemies")
+		if(col.tag == "Enemy")
 		{
 			// ... find the Enemy script and call the Hurt function.
-			//col.gameObject.GetComponent<EnemyBehaviour>().Hurt();
-			Destroy (col.gameObject);
+			//col.gameObject.GetComponent<Enemy>().Hurt();
+			
 			// Call the explosion instantiation.
 			//OnExplode();
 			
-			// Destroy the fireball.
-			//Destroy (gameObject);
+			// Destroy the rocket.
+			Destroy (gameObject);
 		}
 		
 		// Otherwise if the player manages to shoot himself...

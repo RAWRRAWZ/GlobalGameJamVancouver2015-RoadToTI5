@@ -26,7 +26,7 @@ public class PlayerState : MonoBehaviour {
 	public int numberOfGems;
 	public int superTime;
 
-	public SpriteRenderer gameOverScreen;
+	public string gameOverText;
 
 	// Use this for initialization
 	void Awake () {
@@ -70,9 +70,17 @@ public class PlayerState : MonoBehaviour {
 		}
 	}
 
+	void FixedUpdate() {
+		if (superMode) {
+			superTime--;
+			if (superTime <= 0) {
+				superMode = false;
+			}
+		}
+	}
+
 	void GameOver() {
-		//GameObject.FindWithTag ("Finish").gameObject.GetComponent<Canvas> ().enabled = true;;
+		GameObject.FindWithTag ("Finish").gameObject.GetComponent<Canvas> ().enabled = true;;
 		//Application.LoadLevel(Application.loadedLevel);
-		gameOverScreen.enabled = true;
 	}
 }
