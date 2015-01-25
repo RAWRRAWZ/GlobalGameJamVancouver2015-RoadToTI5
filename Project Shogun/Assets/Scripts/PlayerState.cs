@@ -51,7 +51,7 @@ public class PlayerState : MonoBehaviour {
 	void Update () {
 		switch (currentState) {
 		case state.NINJA:
-			transform.root.GetComponent<PlayerMovement>().maxSpeed = 15;
+			transform.root.GetComponent<PlayerMovement>().maxSpeed = 25;
 			if (!superMode){
 				ren.sprite = ninjaModel;
 				//transform.root.Find("body").gameObject.GetComponent<SpriteRenderer>().sprite = ninjaObject.GetComponent<SpriteRenderer>().sprite;
@@ -61,7 +61,7 @@ public class PlayerState : MonoBehaviour {
 				ren.sprite = superNinjaModel;
 			break;
 		case state.SAMURAI:
-			transform.root.GetComponent<PlayerMovement>().maxSpeed = 11;
+			transform.root.GetComponent<PlayerMovement>().maxSpeed = 18;
 			if (!superMode)
 				ren.sprite = samuraiModel;
 			else 

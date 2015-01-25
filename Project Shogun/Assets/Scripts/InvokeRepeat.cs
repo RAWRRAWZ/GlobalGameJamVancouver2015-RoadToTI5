@@ -21,7 +21,7 @@ public class InvokeRepeat : MonoBehaviour
 			int targetIndex = Random.Range (0, targets.Length);
 			//Instantiate(targets[targetIndex], transform.position, transform.rotation);
 			//Vector3 screenPosition = new Vector3 (0, 0, 0);
-			Vector3 screenPosition = Camera.main.ScreenToWorldPoint (new Vector3 (Random.Range (0, Screen.width), Random.Range (0, Screen.height), Camera.main.farClipPlane / 2));
+			Vector3 screenPosition = Camera.main.ScreenToWorldPoint (new Vector3 (Random.Range (0, Screen.width-10), Random.Range (0, Screen.height-15), Camera.main.farClipPlane / 2));
 			Instantiate (targets [targetIndex], screenPosition, Quaternion.identity);
 		}
 	}
