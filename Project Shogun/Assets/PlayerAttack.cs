@@ -5,7 +5,7 @@ public class PlayerAttack : MonoBehaviour
 {
 	public Rigidbody2D rocket;				// Prefab of the rocket.
 	public Rigidbody2D weapon;
-	public string triggerPunch = "q";
+	public string triggerPunch;
 	public float speed = 20f;				// The speed the rocket will fire at.
 	public bool attack;
 	
@@ -26,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
 	{
 		
 		// If the fire button is pressed...
-		if(Input.GetKeyDown(triggerPunch))
+		if(Input.GetButtonDown(triggerPunch))
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetBool("punching", true);

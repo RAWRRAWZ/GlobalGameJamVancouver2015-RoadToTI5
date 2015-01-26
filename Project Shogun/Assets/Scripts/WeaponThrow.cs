@@ -10,7 +10,7 @@ public class WeaponThrow : MonoBehaviour {
 	public SpriteRenderer weaponRenderer;
 	public Sprite weaponSprite;
 
-	public string fireButton;
+	public string fireButtonInput;
 	//public Sprite originalSprite;
 
 	private PlayerMovement playerCtrl;		// Reference to the PlayerControl script.
@@ -26,7 +26,7 @@ public class WeaponThrow : MonoBehaviour {
 	{
 
 		// If the shuriken throwing button is pressed, the shuriken hasn't been laid and there's a shuriken to throw...
-		if(Input.GetKeyDown (fireButton) && !weaponThrown && weaponCount > 0)
+		if(Input.GetButtonDown (fireButtonInput) && !weaponThrown && weaponCount > 0)
 		{
 			// Decrement the number of shuriken.
 			weaponCount--;

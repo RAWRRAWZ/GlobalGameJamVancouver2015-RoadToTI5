@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SwordAttack : MonoBehaviour
 {
-	public string triggerPunch = "q";
+	public string triggerPunch;
 	public bool attack;
 	
 	private PlayerState playerCtrl;		// Reference to the PlayerControl script.
@@ -24,7 +24,7 @@ public class SwordAttack : MonoBehaviour
 	{
 		
 		// If the fire button is pressed...
-		if((playerCtrl.currentState == PlayerState.state.SAMURAI) &&(Input.GetKeyDown(triggerPunch) && cooldown == 0f))
+		if((playerCtrl.currentState == PlayerState.state.SAMURAI) &&(Input.GetButtonDown(triggerPunch) && cooldown == 0f))
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Attack");
