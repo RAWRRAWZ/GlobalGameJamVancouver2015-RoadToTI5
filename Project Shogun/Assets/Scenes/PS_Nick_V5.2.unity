@@ -1195,7 +1195,7 @@ MonoBehaviour:
   - {fileID: 142692, guid: 0a65758a96e9382418a75773da87d636, type: 2}
   - {fileID: 142692, guid: 0a65758a96e9382418a75773da87d636, type: 2}
   - {fileID: 180508, guid: e838b111cea0f7746a67831325e174a9, type: 2}
-  - {fileID: 175064, guid: 3448d8e4c7f65704d9ba3ecb9338ea8c, type: 2}
+  - {fileID: 142692, guid: 0a65758a96e9382418a75773da87d636, type: 2}
 --- !u!1 &382890052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdeafb98a897ac4098031e8ba018358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerPunch: m
+  triggerPunch: enter
   attack: 0
 --- !u!111 &396689216
 Animation:
@@ -2571,7 +2571,7 @@ PolygonCollider2D:
   m_PrefabInternal: {fileID: 1474742766}
   m_GameObject: {fileID: 920576661}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ac1a25c899bf78d44a4083ec4d163537, type: 2}
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
@@ -3355,7 +3355,7 @@ PolygonCollider2D:
   m_PrefabInternal: {fileID: 1870087805}
   m_GameObject: {fileID: 1203080768}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ac1a25c899bf78d44a4083ec4d163537, type: 2}
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
@@ -4096,6 +4096,10 @@ Prefab:
       propertyPath: triggerPunch
       value: v
       objectReference: {fileID: 0}
+    - target: {fileID: 6070646, guid: e0cb9a28fe6910749b71b0bab6efee49, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: ac1a25c899bf78d44a4083ec4d163537, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0cb9a28fe6910749b71b0bab6efee49, type: 2}
   m_RootGameObject: {fileID: 920576661}
@@ -5111,7 +5115,7 @@ Prefab:
     - target: {fileID: 6070646, guid: e0cb9a28fe6910749b71b0bab6efee49, type: 2}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6200000, guid: ac1a25c899bf78d44a4083ec4d163537, type: 2}
     - target: {fileID: 11499260, guid: e0cb9a28fe6910749b71b0bab6efee49, type: 2}
       propertyPath: moveForce
       value: 2000
@@ -5147,7 +5151,7 @@ Prefab:
         type: 3}
     - target: {fileID: 11417654, guid: e0cb9a28fe6910749b71b0bab6efee49, type: 2}
       propertyPath: triggerPunch
-      value: .
+      value: enter
       objectReference: {fileID: 0}
     - target: {fileID: 117654, guid: e0cb9a28fe6910749b71b0bab6efee49, type: 2}
       propertyPath: m_IsActive
@@ -5160,7 +5164,7 @@ Prefab:
         type: 3}
     - target: {fileID: 11417660, guid: e0cb9a28fe6910749b71b0bab6efee49, type: 2}
       propertyPath: triggerPunch
-      value: m
+      value: enter
       objectReference: {fileID: 0}
     - target: {fileID: 6017654, guid: e0cb9a28fe6910749b71b0bab6efee49, type: 2}
       propertyPath: m_IsTrigger
@@ -5319,7 +5323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fe3df51faac7b49bbf6df45347ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerPunch: .
+  triggerPunch: enter
   attack: 0
 --- !u!95 &1995235770
 Animator:
