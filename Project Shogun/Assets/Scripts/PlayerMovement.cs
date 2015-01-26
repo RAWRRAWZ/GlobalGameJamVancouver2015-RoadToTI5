@@ -6,10 +6,8 @@ public class PlayerMovement: MonoBehaviour {
 
 	public bool jump = false;				// Condition for whether the player should jump.
 	public bool facingRight = true;
-	public string left = "a";
-	public string right = "d";
-	public string up = "w";
-	public string down = "s";
+	public string horizInput;
+	public string jumpInput;
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
@@ -34,7 +32,7 @@ public class PlayerMovement: MonoBehaviour {
 		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 		
 		// If the jump button is pressed and the player is grounded then the player should jump.
-		if(Input.GetKeyDown(up) && grounded)
+		if(Input.GetButtonDown(jumpInput) && grounded)
 			jump = true;
 
 	}
@@ -48,12 +46,7 @@ public class PlayerMovement: MonoBehaviour {
 			}
 		}
 		// Cache the horizontal input.
-		float h = 0;
-		if (Input.GetKey (right)) {
-			h = 1;
-		} else if (Input.GetKey (left)) {
-			h = -1;
-		}
+		float h =  Input.GetAxis(horizInput);
 
 		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
 		if(h * rigidbody2D.velocity.x < maxSpeed)
@@ -88,7 +81,7 @@ public class PlayerMovement: MonoBehaviour {
 
 	public void superspeed(){
 		fast = true;
-		maxSpeed = 30f;
+		maxSpeed = 31f;
 	}
 
 	void Flip ()
