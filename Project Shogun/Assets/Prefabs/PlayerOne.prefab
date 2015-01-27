@@ -136,6 +136,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &189340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 489340}
+  m_Layer: 12
+  m_Name: antiStick
+  m_TagString: Untagged
+  m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &199262
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +183,8 @@ GameObject:
   - 114: {fileID: 11499264}
   - 114: {fileID: 11499266}
   - 60: {fileID: 6070646}
+  - 61: {fileID: 6189340}
+  - 114: {fileID: 11489340}
   m_Layer: 12
   m_Name: PlayerOne
   m_TagString: Player
@@ -241,7 +258,7 @@ Transform:
   - {fileID: 407536}
   - {fileID: 407534}
   m_Father: {fileID: 499264}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &417654
 Transform:
   m_ObjectHideFlags: 1
@@ -254,7 +271,7 @@ Transform:
   m_Children:
   - {fileID: 417656}
   m_Father: {fileID: 499264}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &417656
 Transform:
   m_ObjectHideFlags: 1
@@ -279,7 +296,7 @@ Transform:
   m_Children:
   - {fileID: 417660}
   m_Father: {fileID: 499264}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &417660
 Transform:
   m_ObjectHideFlags: 1
@@ -292,6 +309,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 417658}
   m_RootOrder: 0
+--- !u!4 &489340
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189340}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .240000054, y: -1.33000028, z: -.200000077}
+  m_LocalScale: {x: .292899489, y: .292899489, z: .292899489}
+  m_Children: []
+  m_Father: {fileID: 499264}
+  m_RootOrder: 0
 --- !u!4 &499262
 Transform:
   m_ObjectHideFlags: 1
@@ -303,7 +332,7 @@ Transform:
   m_LocalScale: {x: .29289937, y: .29289937, z: .29289937}
   m_Children: []
   m_Father: {fileID: 499264}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &499264
 Transform:
   m_ObjectHideFlags: 1
@@ -314,6 +343,7 @@ Transform:
   m_LocalPosition: {x: -31.1000004, y: -25.8999996, z: -.200000003}
   m_LocalScale: {x: 1.09004951, y: 1.09004951, z: 1.09004951}
   m_Children:
+  - {fileID: 489340}
   - {fileID: 499262}
   - {fileID: 499266}
   - {fileID: 407540}
@@ -332,7 +362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 499264}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!50 &5099266
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -404,7 +434,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199264}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Poly:
@@ -526,6 +556,17 @@ PolygonCollider2D:
       - {x: .0900000036, y: .100000001}
       - {x: .150000006, y: .230000004}
       - {x: .25, y: .449999988}
+--- !u!61 &6189340
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199264}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 2.36360502, y: 6.31179905}
+  m_Center: {x: -.0402012318, y: 3.236305}
 --- !u!95 &9517654
 Animator:
   serializedVersion: 3
@@ -615,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fe3df51faac7b49bbf6df45347ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerPunch: q
+  triggerPunch: RedAttack
   attack: 0
 --- !u!114 &11417656
 MonoBehaviour:
@@ -650,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdeafb98a897ac4098031e8ba018358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerPunch: q
+  triggerPunch: RedAttack
   attack: 0
 --- !u!114 &11460302
 MonoBehaviour:
@@ -678,6 +719,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gemNumber: 1
   currentState: {fileID: 11499262}
+--- !u!114 &11489340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9891ac7aa9a3874c9475fddc13040fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11499260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -692,10 +744,8 @@ MonoBehaviour:
   walkspeed: 5
   jump: 0
   facingRight: 1
-  left: a
-  right: d
-  up: w
-  down: s
+  horizInput: RedHorizontal
+  jumpInput: RedJump
   moveForce: 2000
   maxSpeed: 18
   jumpForce: 2200
@@ -715,6 +765,11 @@ MonoBehaviour:
   samuraiModel: {fileID: 21300000, guid: 8ef302f49608ec04a91cfd2225a45c9d, type: 3}
   superSamuraiModel: {fileID: 21300000, guid: 9cb6613ba7a544b408862de084aab684, type: 3}
   superNinjaModel: {fileID: 21300000, guid: efa1fd3d93566e64abcbb03dba925bf9, type: 3}
+  ninjaAnimArm: {fileID: 21300000, guid: 110ac7c239a65214c972f7ade18b197f, type: 3}
+  samuraiAnimSword: {fileID: 21300000, guid: 71c97579a5cfe2941b038c6aa14c7293, type: 3}
+  superninjaAnimArm: {fileID: 21300000, guid: f6a2ac35752cb824b9a4aa0576c9eb57, type: 3}
+  supersamuraiAnimSword: {fileID: 21300000, guid: 435c2237eed5bbe4cac7e79d35868949,
+    type: 3}
   ninjaAnimModel: {fileID: 0}
   samuraiAnimModel: {fileID: 0}
   superNinjaAnimModel: {fileID: 0}
@@ -743,7 +798,7 @@ MonoBehaviour:
   weaponRB: {fileID: 5070822, guid: a001ff7994fc2444688ccf79df1374f2, type: 2}
   weaponRenderer: {fileID: 21299266}
   weaponSprite: {fileID: 21300002, guid: 610d7ff9b17df79498d27a4dd5da2221, type: 3}
-  fireButton: s
+  fireButtonInput: RedThrow
 --- !u!114 &11499266
 MonoBehaviour:
   m_ObjectHideFlags: 1
