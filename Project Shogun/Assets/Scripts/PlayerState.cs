@@ -16,6 +16,12 @@ public class PlayerState : MonoBehaviour {
 	public Sprite superSamuraiModel;
 	public Sprite superNinjaModel;
 
+	public Sprite ninjaAnimArm;
+	public Sprite samuraiAnimSword;
+
+	public Sprite superninjaAnimArm;
+	public Sprite supersamuraiAnimSword;
+
 	public GameObject ninjaAnimModel;
 	public GameObject samuraiAnimModel;
 		
@@ -59,21 +65,27 @@ public class PlayerState : MonoBehaviour {
 
 			transform.root.GetComponent<PlayerMovement>().maxSpeed = ninjaSpeed;
 			if (!superMode){
+				ninjaArm.GetComponent<SpriteRenderer>().sprite = ninjaAnimArm;
 				ren.sprite = ninjaModel;
 				//transform.root.Find("body").gameObject.GetComponent<SpriteRenderer>().sprite = ninjaObject.GetComponent<SpriteRenderer>().sprite;
 				//transform.root.Find("body").gameObject.GetComponent<Animator>().runtimeAnimatorController = ninjaObject.GetComponent<Animator>().runtimeAnimatorController;
 			}
-			else 
+			else {
+				ninjaArm.GetComponent<SpriteRenderer>().sprite = superninjaAnimArm;
 				ren.sprite = superNinjaModel;
+			}
 			break;
 		case state.SAMURAI:
 			transform.root.GetComponent<PlayerMovement>().maxSpeed = samuraiSpeed;
 			ninjaArm.SetActive(false);
 			samuraiSword.SetActive(true);
-			if (!superMode)
+			if (!superMode){
+				samuraiSword.GetComponent<SpriteRenderer>().sprite = samuraiAnimSword;
 				ren.sprite = samuraiModel;
-			else 
+			}else { 
+				samuraiSword.GetComponent<SpriteRenderer>().sprite = supersamuraiAnimSword;
 				ren.sprite = superSamuraiModel;
+			}
 			break;
 		case state.DEAD:
 			SoundManager.instance.Play("Round");

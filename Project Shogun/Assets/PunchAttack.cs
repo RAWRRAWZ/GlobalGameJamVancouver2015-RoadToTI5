@@ -22,7 +22,12 @@ public class PunchAttack : MonoBehaviour
 	
 	void Update ()
 	{
-		
+		if (attack == true && cooldown < 0.4f) {
+			cooldown += Time.deltaTime;
+		} else if (cooldown >= 0.4f){
+			cooldown = 0f;
+			attack = false;
+		}
 		// If the fire button is pressed...
 		if((playerCtrl.currentState == PlayerState.state.NINJA) &&(Input.GetButtonDown(triggerPunch) && cooldown == 0f))
 		{
@@ -32,14 +37,5 @@ public class PunchAttack : MonoBehaviour
 			
 		}
 		
-	}
-	
-	void FixedUpdate(){
-		if ((cooldown < 0.8f) && (cooldown != 0)) {
-			cooldown += Time.deltaTime;
-		} else if (cooldown >= 0.8f){
-			cooldown = 0f;
-			attack = false;
-		}
 	}
 }
