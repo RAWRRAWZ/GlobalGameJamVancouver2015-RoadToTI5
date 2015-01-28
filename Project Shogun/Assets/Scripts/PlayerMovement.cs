@@ -10,12 +10,11 @@ public class PlayerMovement: MonoBehaviour {
 	public string jumpInput;
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
-	public float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
+	public float maxSpeed = 12f;				// The fastest the player can travel in the x axis.
 	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
 
 	private float speedTimer = 0;
 	private float normalspeed;
-	private bool fast = false;
 	private bool grounded = true;
 	private Transform groundCheck;
 
@@ -25,8 +24,6 @@ public class PlayerMovement: MonoBehaviour {
 		// Setting up references.
 		groundCheck = transform.Find("groundCheck");
 		normalspeed = maxSpeed;
-
-
 	}
 	
 	
@@ -43,56 +40,35 @@ public class PlayerMovement: MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		// Cache the horizontal input.
+		float h = Input.GetAxis (horizInput);
 
-
-
-
-				if (fast == true) {
-						speedTimer += Time.deltaTime;
-						if (speedTimer > 5f) {
-								maxSpeed = normalspeed;
-						}
-				}
-				// Cache the horizontal input.
-				float h = Input.GetAxis (horizInput);
-
-				// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
-				if (h * rigidbody2D.velocity.x < maxSpeed)
+		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
+		if (h * rigidbody2D.velocity.x < maxSpeed)
 			// ... add a force to the player.
-						rigidbody2D.AddForce (Vector2.right * h * moveForce);
+			rigidbody2D.AddForce (Vector2.right * h * moveForce);
 		
-				// If the player's horizontal velocity is greater than the maxSpeed...
-				if (Mathf.Abs (rigidbody2D.velocity.x) > maxSpeed)
-			// ... set the player's velocity to the maxSpeed in the x axis.
-						rigidbody2D.velocity = new Vector2 (Mathf.Sign (rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
+			// If the player's horizontal velocity is greater than the maxSpeed...
+		if (Mathf.Abs (rigidbody2D.velocity.x) > maxSpeed)
+			rigidbody2D.velocity = new Vector2 (Mathf.Sign (rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
 		
-				// If the input is moving the player right and the player is facing left...
-				if (h > 0 && !facingRight)
+			// If the input is moving the player right and the player is facing left...
+		if (h > 0 && !facingRight)
 			// ... flip the player.
-						Flip ();
-		// Otherwise if the input is moving the player left and the player is facing right...
+			Flip ();
+			// Otherwise if the input is moving the player left and the player is facing right...
 		else if (h < 0 && facingRight)
 			// ... flip the player.
-						Flip ();
+			Flip ();
 
-				// If the player should jump...
-				if (jump) {
+		// If the player should jump...
+		if (jump) {
+			// Add a vertical force to the player.
+			rigidbody2D.AddForce (new Vector2 (0f, jumpForce));
 
-						// Add a vertical force to the player.
-						rigidbody2D.AddForce (new Vector2 (0f, jumpForce));
-			
-						// Make sure the player can't jump again until the jump conditions from Update are satisfied.
-						jump = false;
-
-
-				}
-	
-			
-					}
-
-	public void superspeed(){
-		fast = true;
-		maxSpeed = 31f;
+			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
+			jump = false;
+		}
 	}
 
 	void Flip ()

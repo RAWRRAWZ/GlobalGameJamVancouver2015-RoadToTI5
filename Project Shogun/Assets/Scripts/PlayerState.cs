@@ -3,13 +3,13 @@ using System.Collections;
 
 public class PlayerState : MonoBehaviour {
 
-	public enum state {
+	public enum modeState {
 		DEAD,
 		NINJA,
 		SAMURAI
 	};
 
-	public state currentState;
+	public modeState currentState;
 	public Sprite ninjaModel;
 	public Sprite samuraiModel;
 
@@ -33,6 +33,11 @@ public class PlayerState : MonoBehaviour {
 	public Sprite deadModel;
 	public SpriteRenderer ren;
 
+	public enum speedState {
+		NORMAL_MODE	,
+		FAST_MODE
+	};
+	
 	//public GameObject ninjaObject;
 
 	public bool superMode;
@@ -41,7 +46,11 @@ public class PlayerState : MonoBehaviour {
 
 	public GameObject gameOverScreen;
 
-	private int ninjaSpeed = 22;
+	public speedState currentSpeedState;
+	public int speedPowerUpTime;
+
+	private int superSpeed = 30;
+	private int ninjaSpeed = 20;
 	private int samuraiSpeed = 12;
 
 
@@ -51,15 +60,17 @@ public class PlayerState : MonoBehaviour {
 	}
 
 	void Start () {
-		currentState = state.SAMURAI;
+		currentState = modeState.SAMURAI;
 		numberOfGems = 0;
 		superMode = false;
+		currentSpeedState = speedState.NORMAL_MODE;
+		speedPowerUpTime = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		switch (currentState) {
-		case state.NINJA:
+		case modeState.NINJA:
 			ninjaArm.SetActive(true);
 			samuraiSword.SetActive(false);
 
@@ -75,7 +86,7 @@ public class PlayerState : MonoBehaviour {
 				ren.sprite = superNinjaModel;
 			}
 			break;
-		case state.SAMURAI:
+		case modeState.SAMURAI:
 			transform.root.GetComponent<PlayerMovement>().maxSpeed = samuraiSpeed;
 			ninjaArm.SetActive(false);
 			samuraiSword.SetActive(true);
@@ -87,13 +98,34 @@ public class PlayerState : MonoBehaviour {
 				ren.sprite = superSamuraiModel;
 			}
 			break;
-		case state.DEAD:
+		case modeState.DEAD:
 			SoundManager.instance.Play("Round");
 			Destroy (transform.root.gameObject);
 			//guiText.text = gameOverText;
 			GameOver();
 			break;
 		default:
+			break;
+		}
+	}
+
+	// Update is called once per frame
+	void FixedUpdate () {
+		switch (currentSpeedState) {
+		case speedState.FAST_MODE:
+			transform.root.GetComponent<PlayerMovement>().maxSpeed = superSpeed;
+			speedPowerUpTime--;
+			if (speedPowerUpTime <= 0) {
+				currentSpeedState = speedState.NORMAL_MODE;
+			}
+			break;
+		case speedState.NORMAL_MODE:
+		default:
+			if (currentState == modeState.NINJA) {
+				transform.root.GetComponent<PlayerMovement>().maxSpeed = ninjaSpeed;
+			} else if (currentState == modeState.SAMURAI) {
+				transform.root.GetComponent<PlayerMovement>().maxSpeed = samuraiSpeed;
+			}
 			break;
 		}
 	}

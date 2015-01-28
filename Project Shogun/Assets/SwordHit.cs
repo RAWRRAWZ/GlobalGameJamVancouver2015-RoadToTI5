@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SwordHit : MonoBehaviour {
@@ -16,7 +16,7 @@ public class SwordHit : MonoBehaviour {
 						Destroy (col.gameObject);
 				} else if (col.gameObject.tag == "Player" && transform.parent.GetComponent<Animator> ().GetCurrentAnimationClipState (0) [0].clip.name == "SwordCut"){
 						SoundManager.instance.Play ("SliceImpact");
-				if (col.gameObject.GetComponent<PlayerState> ().currentState == PlayerState.state.NINJA)	{
+				if (col.gameObject.GetComponent<PlayerState> ().currentState == PlayerState.modeState.NINJA)	{
 				SoundManager.instance.Play("SliceImpact");
 					col.gameObject.GetComponent<PlayerState> ().currentState--;
 

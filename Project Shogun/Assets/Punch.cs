@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Punch : MonoBehaviour {
@@ -14,7 +14,7 @@ public class Punch : MonoBehaviour {
 		if (col.tag == "Enemies" && transform.parent.GetComponent<Animator>().GetCurrentAnimationClipState(0)[0].clip.name == "ninjapunch") {
 				Destroy (col.gameObject);
 		} else if (col.gameObject.tag == "Player" && transform.parent.GetComponent<Animator>().GetCurrentAnimationClipState(0)[0].clip.name == "ninjapunch") {
-				if (col.gameObject.GetComponent<PlayerState> ().currentState == PlayerState.state.NINJA) {
+				if (col.gameObject.GetComponent<PlayerState> ().currentState == PlayerState.modeState.NINJA) {
 					col.gameObject.GetComponent<PlayerState> ().currentState--;
 				}
 			}

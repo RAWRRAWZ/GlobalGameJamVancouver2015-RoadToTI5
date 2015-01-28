@@ -31,7 +31,7 @@ public class Fireball : MonoBehaviour {
 		else if(col.gameObject.tag == "Player")
 		{
 			// If the player hit is a Samurai, change his state to Ninja
-			col.gameObject.GetComponent<PlayerState>().currentState = PlayerState.state.DEAD;
+			col.gameObject.GetComponent<PlayerState>().currentState = PlayerState.modeState.DEAD;
 
 			//OnExplode();
 			SoundManager.instance.Play("FireHit");

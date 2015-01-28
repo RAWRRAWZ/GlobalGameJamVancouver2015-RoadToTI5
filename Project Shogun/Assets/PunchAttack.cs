@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PunchAttack : MonoBehaviour
@@ -31,7 +31,7 @@ public class PunchAttack : MonoBehaviour
 			attack = false;
 		}
 		// If the fire button is pressed...
-		if((playerCtrl.currentState == PlayerState.state.NINJA) &&(Input.GetButtonDown(triggerPunch) && cooldown == 0f))
+		if((playerCtrl.currentState == PlayerState.modeState.NINJA) &&(Input.GetButtonDown(triggerPunch) && cooldown == 0f))
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("punching");

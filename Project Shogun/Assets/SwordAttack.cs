@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SwordAttack : MonoBehaviour
@@ -30,12 +30,12 @@ public class SwordAttack : MonoBehaviour
 			attack = false;
 		}
 		// If the fire button is pressed...
-		if((playerCtrl.currentState == PlayerState.state.SAMURAI) &&(Input.GetButtonDown(triggerPunch) && cooldown == 0f))
+		if((playerCtrl.currentState == PlayerState.modeState.SAMURAI) &&(Input.GetButtonDown(triggerPunch) && cooldown == 0f))
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Attack");
 			attack = true;
-			if((playerCtrl.currentState == PlayerState.state.SAMURAI) && (playerCtrl.superMode == false))
+			if((playerCtrl.currentState == PlayerState.modeState.SAMURAI) && (playerCtrl.superMode == false))
 			   {
 			SoundManager.instance.Play("SliceNormal");
 			}

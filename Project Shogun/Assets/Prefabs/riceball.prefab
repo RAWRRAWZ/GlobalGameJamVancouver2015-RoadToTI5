@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupClip: {fileID: 8300000, guid: db98127145b650c49954bcfdb6bb78e4, type: 3}
-  powerUpTime: 500
+  powerUpTime: 250
 --- !u!212 &21244360
 SpriteRenderer:
   m_ObjectHideFlags: 1

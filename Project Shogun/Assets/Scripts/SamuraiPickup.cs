@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SamuraiPickup : MonoBehaviour
@@ -30,8 +30,8 @@ public class SamuraiPickup : MonoBehaviour
 			SoundManager.instance.Play("ArmourUp");
 
 			// Change the player state to samurai
-			PlayerState.state currentState = other.GetComponent<PlayerState>().currentState;
-			other.GetComponent<PlayerState>().currentState = PlayerState.state.SAMURAI;
+			PlayerState.modeState currentState = other.GetComponent<PlayerState>().currentState;
+			other.GetComponent<PlayerState>().currentState = PlayerState.modeState.SAMURAI;
 
 			// Destroy the pickup
 			Destroy(transform.root.gameObject);

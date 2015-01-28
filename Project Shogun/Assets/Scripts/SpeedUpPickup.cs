@@ -20,9 +20,9 @@ public class SpeedUpPickup : MonoBehaviour
 			// ... play the pickup sound effect.
 			SoundManager.instance.Play("Eat");
 			// Increase the number of bombs the player has.
-			other.GetComponent<PowerUpState>().currentState = PowerUpState.state.FAST_MODE;
+			other.GetComponent<PlayerState>().currentSpeedState = PlayerState.speedState.FAST_MODE;
 
-			other.GetComponent<PowerUpState>().powerUpTime = powerUpTime;
+			other.GetComponent<PlayerState>().speedPowerUpTime = powerUpTime;
 
 			// Destroy the crate.
 			Destroy(transform.root.gameObject);
