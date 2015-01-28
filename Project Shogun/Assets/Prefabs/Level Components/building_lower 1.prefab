@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21228138}
   - 60: {fileID: 6028138}
   - 61: {fileID: 6128138}
+  - 58: {fileID: 5837088}
   m_Layer: 9
   m_Name: building_lower 1
   m_TagString: ground
@@ -30,6 +31,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!58 &5837088
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128138}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .311096787
+  m_Center: {x: -5.69999981, y: 0}
 --- !u!60 &6028138
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -57,7 +69,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128138}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c1bdae32c71f10048999e5b284fa3233, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 11.1551199, y: .541007042}
   m_Center: {x: .0295955651, y: .027977718}

@@ -24,6 +24,8 @@ public class PunchAttack : MonoBehaviour
 	{
 		if (attack == true && cooldown < 0.4f) {
 			cooldown += Time.deltaTime;
+					SoundManager.instance.Play("Punch");
+				
 		} else if (cooldown >= 0.4f){
 			cooldown = 0f;
 			attack = false;

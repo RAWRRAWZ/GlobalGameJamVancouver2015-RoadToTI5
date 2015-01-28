@@ -33,6 +33,7 @@ public class GemPickup : MonoBehaviour
 
 			if (++state.numberOfGems >= gemThreshold) {
 				state.superMode = true;
+				SoundManager.instance.Play("SuperSamurai");
 				state.numberOfGems = 0;
 
 				// Enable the ShurikenThrow script the player has.

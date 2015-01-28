@@ -9,7 +9,8 @@ public class SwordAttack : MonoBehaviour
 	private PlayerState playerCtrl;		// Reference to the PlayerControl script.
 	private Animator anim;					// Reference to the Animator component.
 	private float cooldown;
-	
+
+		
 	void Awake()
 	{
 		// Setting up the references.
@@ -34,6 +35,14 @@ public class SwordAttack : MonoBehaviour
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Attack");
 			attack = true;
+			if((playerCtrl.currentState == PlayerState.state.SAMURAI) && (playerCtrl.superMode == false))
+			   {
+			SoundManager.instance.Play("SliceNormal");
+			}
+			else if (playerCtrl.superMode )
+			         {
+				SoundManager.instance.Play("SliceSuper");
+			}
 		}
 		
 	}
