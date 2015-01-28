@@ -11,7 +11,7 @@ public class InvokeRepeat : MonoBehaviour
 	void Start()
 	{
 		numObjects = 0;
-		InvokeRepeating("SpawnObject", Random.Range (1, 8), Random.Range (1, 5));
+		InvokeRepeating("SpawnObject", Random.Range (4, 8), Random.Range (2, 5));
 	}
 	
 	void SpawnObject()
@@ -21,8 +21,12 @@ public class InvokeRepeat : MonoBehaviour
 			int targetIndex = Random.Range (0, targets.Length);
 			//Instantiate(targets[targetIndex], transform.position, transform.rotation);
 			//Vector3 screenPosition = new Vector3 (0, 0, 0);
-			Vector3 screenPosition = Camera.main.ScreenToWorldPoint (new Vector3 (Random.Range (0, Screen.width-10), Random.Range (0, Screen.height-15), Camera.main.farClipPlane / 2));
-			Instantiate (targets [targetIndex], screenPosition, Quaternion.identity);
+
+			float x = Random.Range(-70.0f, 40.0f);
+			float y = Random.Range(-5.0f, -60.0f);
+			Instantiate(targets[targetIndex], new Vector2(x, y), Quaternion.identity);
+			//Vector2 screenPosition = Camera.main.ScreenToWorldPoint (new Vector3 (Random.Range (0, Screen.width-10), Random.Range (0, Screen.height-15), Camera.main.farClipPlane / 2));
+			//Instantiate (targets [targetIndex], screenPosition, Quaternion.identity);
 		}
 	}
 
