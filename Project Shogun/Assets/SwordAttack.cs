@@ -22,9 +22,9 @@ public class SwordAttack : MonoBehaviour
 	
 	void Update ()
 	{
-		if (attack == true && cooldown < 2f) {
+		if (attack == true && cooldown < 1f) {
 			cooldown += Time.deltaTime;
-		} else if (cooldown >= 2f){
+		} else if (cooldown >= 1f){
 			cooldown = 0f;
 			attack = false;
 		}
