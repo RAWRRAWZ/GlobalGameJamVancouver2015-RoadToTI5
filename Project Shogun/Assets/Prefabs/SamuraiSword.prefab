@@ -695,7 +695,7 @@ MonoBehaviour:
   weaponRB: {fileID: 5070822, guid: a001ff7994fc2444688ccf79df1374f2, type: 2}
   weaponRenderer: {fileID: 21285638}
   weaponSprite: {fileID: 21300002, guid: 610d7ff9b17df79498d27a4dd5da2221, type: 3}
-  fireButton: s
+  fireButtonInput: 
 --- !u!114 &11485642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -712,6 +712,10 @@ MonoBehaviour:
   samuraiModel: {fileID: 21300000, guid: 8ef302f49608ec04a91cfd2225a45c9d, type: 3}
   superSamuraiModel: {fileID: 21300000, guid: 9cb6613ba7a544b408862de084aab684, type: 3}
   superNinjaModel: {fileID: 21300000, guid: efa1fd3d93566e64abcbb03dba925bf9, type: 3}
+  ninjaAnimArm: {fileID: 0}
+  samuraiAnimSword: {fileID: 0}
+  superninjaAnimArm: {fileID: 0}
+  supersamuraiAnimSword: {fileID: 0}
   ninjaAnimModel: {fileID: 0}
   samuraiAnimModel: {fileID: 0}
   superNinjaAnimModel: {fileID: 0}
@@ -722,8 +726,9 @@ MonoBehaviour:
   ren: {fileID: 21285640}
   superMode: 0
   numberOfGems: 0
-  superTime: 0
-  gameOverText: Player Two Wins!
+  gameOverScreen: {fileID: 0}
+  currentSpeedState: 0
+  speedPowerUpTime: 0
 --- !u!114 &11485644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -738,10 +743,8 @@ MonoBehaviour:
   walkspeed: 5
   jump: 0
   facingRight: 1
-  left: a
-  right: d
-  up: w
-  down: s
+  horizInput: 
+  jumpInput: 
   moveForce: 2000
   maxSpeed: 18
   jumpForce: 2200
@@ -756,9 +759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410869588e15a704d828d600d3f74699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 1
-  powerUpTime: 0
-  normalSpeed: 11
 --- !u!212 &21207044
 SpriteRenderer:
   m_ObjectHideFlags: 1
