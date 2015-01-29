@@ -19,6 +19,7 @@ public class StartGame : MonoBehaviour {
 
 	public void startGame() {
 		transform.root.GetComponent<Animator>().enabled = true;
+		SoundManager.instance.Play ("Gong");
 		GameObject[] introObjects = GameObject.FindGameObjectsWithTag ("Intro");
 		foreach (GameObject obj in introObjects) {
 			Destroy (obj);
