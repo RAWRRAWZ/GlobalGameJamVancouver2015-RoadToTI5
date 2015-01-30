@@ -5,13 +5,13 @@ public class InvokeRepeat : MonoBehaviour
 {
 	public GameObject[] targets;
 
-	private int maxObjects = 10;
+	private int maxObjects = 1;
 	private int numObjects;
 	
 	void Start()
 	{
 		numObjects = 0;
-		InvokeRepeating("SpawnObject", Random.Range (4, 8), Random.Range (2, 5));
+		InvokeRepeating("SpawnObject", Random.Range (4, 6), Random.Range (2, 5));
 	}
 	
 	void SpawnObject()
